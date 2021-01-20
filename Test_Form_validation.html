@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Form Validation</title>
+</head>
+<body>
+    <form name="myForm">
+        <p id="test"></p>
+        <label>Name :</label>
+        <input type="text" name="fname" id="fname" placeholder="Name">
+        <br />
+
+        <p id="test1"></p>
+        <label>Phone Number :</label>
+        <input type="tel" name="phone" id="phone" placeholder="123-456-7890" >
+        
+        <p id="test2"></p><label>Email : </label>
+        <input type="email" name="email" id="email" placeholder="email address">
+        <br />
+
+        <p id="test3"></p><label>Password :</label>
+        <input type="password" name="pass" id="pass" placeholder="Password">
+      
+             
+        <p id="test4"></p>
+        <div id="gender">
+        <label> Gender :</label>
+        <input type="radio" name="gender" value="Male">Male 
+      <input type="radio" name="gender" value="Female">Female 
+      <input type="radio" name="gender" value="Others">Others 
+    </div>
+        
+        <input type="submit" value="SignUp" onclick="validationForm(event)">
+        
+      </form>
+    </div>
+  
+    <script>
+      function validationForm(e) {
+        // debugger;
+        e.preventDefault();
+         var fname, phone, email, pass, gender;
+         fname = document.getElementById("fname").value ='';
+         phone = document.getElementById("phone").value = '';
+         email = document.getElementById("email").value = '';
+         gender= document.getElementById("gender").value = '';
+         pass = document.getElementById("pass").value = '';
+  
+        if (fname == "") {
+          document.getElementById("test").innerHTML = "Please enter your Name"
+          document.getElementById("test").style.color = "red"
+          document.getElementById("fname").style.borderColor = "red"
+          
+        }
+        if (phone == "") {
+          document.getElementById("test1").innerHTML = "Please enter your Phone no."
+          document.getElementById("test1").style.color = "red"
+          document.getElementById("phone").style.borderColor = "red"
+        }
+        if (email == "") {
+          document.getElementById("test2").innerHTML = "Please enter Email address"
+          document.getElementById("test2").style.color = "red"
+          document.getElementById("email").style.borderColor = "red"
+        }
+        if (pass == "") {
+          document.getElementById("test3").innerHTML = "Please enter your Password"
+          document.getElementById("test3").style.color = "red"
+          document.getElementById("pass").style.borderColor = "red"
+        }
+        if (gender == "") {
+          document.getElementById("test4").innerHTML = "Please enter Gender"
+          document.getElementById("test4").style.color = "red"
+          document.getElementById("gender").style.borderColor ="red";
+        }
+        ErrorText = "";
+              if ((myForm.gender[0].checked == false) && (myForm.gender[1].checked == false))
+               {
+                  
+                  return false;
+              }
+             if (ErrorText = "") { myForm.submit() }
+          
+          else {
+                   document.myForm.submit();
+              }
+      
+      }
+  
+    </script>
+    </body>
+    </html>
